@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { sounds } from '@/utils/audio';
 import { Language, UI_TEXT } from '@/data/translations';
-import { Volume2, VolumeX, Star, Printer, Globe } from 'lucide-react';
+import { Volume2, VolumeX, Star, Globe } from 'lucide-react';
 
 interface HeaderProps {
   lang: Language;
@@ -29,15 +29,8 @@ export const Header: React.FC<HeaderProps> = ({
     if (nextState) sounds.playPop();
   };
 
-  const handlePrintPdf = () => {
-    sounds.playPop();
-    if (typeof window !== 'undefined') {
-      window.print();
-    }
-  };
-
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b-2 border-slate-200 shadow-xs print:hidden">
+    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b-2 border-slate-200 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
         {/* Logo & Title */}
         <div className="flex items-center gap-3">
@@ -61,16 +54,6 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* PDF Export Button */}
-          <button
-            onClick={handlePrintPdf}
-            className="px-3 py-1.5 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm shadow-md transition-all active:scale-95 flex items-center gap-1.5 border border-amber-500"
-            title="Enregistrer la page en PDF"
-          >
-            <Printer className="w-4 h-4" />
-            <span className="hidden md:inline">{t.pdfButton}</span>
-          </button>
-
           {/* Language Switcher (FR <-> AR) */}
           <button
             onClick={() => {

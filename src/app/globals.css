@@ -73,17 +73,3 @@ body {
 .animate-shake {
   animation: shake 0.4s ease-in-out;
 }
-
-/* Print Styles for Clean PDF Export */
-@media print {
-  body {
-    background: #ffffff !important;
-    color: #000000 !important;
-  }
-  header, footer, button, .print\:hidden {
-    display: none !important;
-  }
-  .print-page {
-    page-break-after: always;
-  }
-}

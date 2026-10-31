@@ -109,32 +109,6 @@ export default function HomePage() {
           isCompleted={completedNodes.includes(currentNode.id)}
         />
       )}
-
-      {/* Hidden Printable Summary Section for Clean PDF Export */}
-      <div className="hidden print:block p-8 bg-white text-black" dir={isAr ? 'rtl' : 'ltr'}>
-        <div className="text-center mb-6 pb-4 border-b-2 border-slate-300">
-          <h1 className="text-2xl font-black text-slate-900 mb-1">{t.siteTitle}</h1>
-          <p className="text-sm font-bold text-slate-600">{t.clubFooter}</p>
-        </div>
-
-        <div className="space-y-6">
-          {Object.values(data).map((item) => (
-            <div key={item.id} className="p-4 rounded-xl border border-slate-300">
-              <h3 className="text-lg font-black text-slate-900 mb-1 flex items-center gap-2">
-                <span>{item.emoji}</span>
-                <span>{item.title}</span>
-                <span className="text-xs text-slate-500 font-medium">({item.metaphorTitle})</span>
-              </h3>
-              <p className="text-xs font-semibold text-slate-700 mb-2">{item.simpleWhat}</p>
-              <ul className="text-xs text-slate-600 space-y-1">
-                {item.simpleRole.map((r, i) => (
-                  <li key={i}>&bull; {r}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

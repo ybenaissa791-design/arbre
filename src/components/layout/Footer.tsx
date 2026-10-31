@@ -9,7 +9,7 @@ export const Footer: React.FC<{ lang?: Language }> = ({ lang = 'fr' }) => {
   const t = UI_TEXT[lang];
 
   return (
-    <footer className="mt-16 bg-gradient-to-b from-slate-900 to-black text-white border-t-4 border-red-600 shadow-2xl relative overflow-hidden print:hidden" dir={isAr ? 'rtl' : 'ltr'}>
+    <footer className="mt-16 bg-gradient-to-b from-slate-900 to-black text-white border-t-4 border-red-600 shadow-2xl relative overflow-hidden" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent blur-xs" />
 
       <div className="max-w-6xl mx-auto px-4 py-8 sm:py-10">
