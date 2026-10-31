@@ -76,7 +76,7 @@ export default function HomePage() {
       />
 
       {/* Main Spacious Tree View */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 py-6 sm:py-10">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-2 sm:px-4 md:px-6 py-4 sm:py-8">
         {/* Child-friendly banner with very little text */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs sm:text-sm font-black mb-3 shadow-xs border border-emerald-300 animate-pulse">

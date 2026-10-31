@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { sounds } from '@/utils/audio';
-import { CheckCircle2, Star } from 'lucide-react';
 
 interface NodeCircleProps {
   id: string;
@@ -38,41 +37,41 @@ export const TreeNodeCircle: React.FC<NodeCircleProps> = ({
     amber: 'from-yellow-400 to-amber-500 border-amber-400 text-slate-950 shadow-amber-200 ring-amber-300',
   };
 
-  // Sizes
+  // Responsive Sizes (Adapted for mobile screens while majestic on desktop)
   const sizeClasses = {
-    root: 'w-44 h-44 sm:w-52 sm:h-52 text-5xl sm:text-6xl border-6',
-    main: 'w-36 h-36 sm:w-40 sm:h-40 text-4xl sm:text-5xl border-5',
-    sub: 'w-28 h-28 sm:w-32 sm:h-32 text-3xl sm:text-4xl border-4',
+    root: 'w-28 h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 text-3xl sm:text-5xl md:text-6xl border-4 sm:border-6',
+    main: 'w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 text-2xl sm:text-4xl md:text-5xl border-3 sm:border-5',
+    sub: 'w-20 h-20 sm:w-26 sm:h-26 md:w-30 md:h-30 text-xl sm:text-3xl md:text-3xl border-3 sm:border-4',
   };
 
   const titleSizes = {
-    root: 'text-sm sm:text-base font-black mt-1 px-3',
-    main: 'text-xs sm:text-sm font-black mt-1 px-2',
-    sub: 'text-[11px] sm:text-xs font-black mt-0.5 px-1.5',
+    root: 'text-[10px] sm:text-xs md:text-sm font-black mt-0.5 sm:mt-1 px-1 sm:px-2',
+    main: 'text-[9px] sm:text-[11px] md:text-xs font-black mt-0.5 sm:mt-1 px-1',
+    sub: 'text-[8.5px] sm:text-[10px] md:text-[11px] font-black mt-0.5 px-0.5 sm:px-1',
   };
 
   return (
     <div
       onClick={handleClick}
-      className={`group cursor-pointer select-none rounded-full flex flex-col items-center justify-center text-center shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-108 active:scale-95 bg-gradient-to-br ring-4 hover:ring-8 ${
+      className={`group cursor-pointer select-none rounded-full flex flex-col items-center justify-center text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 bg-gradient-to-br ring-2 sm:ring-4 hover:ring-6 shrink-0 relative ${
         sizeClasses[size]
       } ${themes[colorTheme]}`}
       title={title}
     >
       {/* Completed Star badge */}
       {isCompleted && (
-        <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-xs font-black shadow-md animate-bounce">
+        <span className="absolute -top-1 -right-1 w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-amber-400 text-slate-950 flex items-center justify-center text-[10px] sm:text-xs font-black shadow-md animate-bounce">
           ⭐
         </span>
       )}
 
       {/* Emoji */}
-      <span className="filter drop-shadow-md transform group-hover:scale-120 transition-transform">
+      <span className="filter drop-shadow-sm transform group-hover:scale-115 transition-transform">
         {emoji}
       </span>
 
       {/* Only Title */}
-      <span className={`leading-tight tracking-tight drop-shadow-sm max-w-[90%] text-center ${titleSizes[size]}`}>
+      <span className={`leading-tight tracking-tight drop-shadow-xs max-w-[92%] text-center ${titleSizes[size]}`}>
         {title}
       </span>
     </div>
